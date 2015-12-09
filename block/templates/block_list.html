@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Django Forum</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="'container">
+        <div class="well col-md-6 col-md-offset-3 page-header">
+            <h1 class="text-center">My Django Forum</h1>
+        </div>
+        <div class="'row">
+            {% for block in blocks %}
+            <div class = 'col-md-6 col-md-offset-3'>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">{{ block.name }}</h3>
+                      <h4 class="panel-title text-right">{{ block.manager.username }}</h4>
+                  </div>
+                  <div class="panel-body">
+                    {{ block.desc}}
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
