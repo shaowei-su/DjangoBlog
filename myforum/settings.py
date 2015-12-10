@@ -106,8 +106,11 @@ STATIC_URL = '/static/'
 
 
 LOGIN_REDIRECT_URL = "/"
+EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 25
-# EMAIL_HOST_USER = "xxxxxxxx"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "iamajunkemailaddress@gmail.com"
 EMAIL_HOST_PASSWORD = "253565630"
 DEFAULT_FROM_EMAIL = "iamajunkemailaddress@gmail.com"
+
+

@@ -41,7 +41,7 @@ def register(request):
             code_record.save()
 
             activate_link = "http://%s%s" % (request.get_host(), reverse("usercenter_activate", args=[new_code]))
-            send_mail("The Django Forum Activation Email", "Your email address is %s" % activate_link, "iamajunkemailaddress@gmail.com",
+            send_mail("The Django Forum Activation Email", "To activate: %s" % activate_link, "iamajunkemailaddress@gmail.com",
                       [email], fail_silently=False)
 
         else:
