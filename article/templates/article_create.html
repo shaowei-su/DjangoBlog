@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'block_list' %}">Home</a></li>
+            <li><a href="{% url 'article_list' b.id %}">{{ b.name }}</a></li>
+            <li class="active">Publish</li>
+        </ol>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form class="form-horizontal" method="POST" action=""> {% csrf_token %}
+            <div class="form-group">
+                <label for="inputTitle" class="col-sm-2 col-md-1 control-label">Title</label>
+                <div class="col-sm-10 col-md-10">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="title" required value="{{ title }}" />
+                </div>
+                <div class="col-sm-0 col-md-11">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="inputContent" class="col-sm-2 col-md-1 control-label">Content</label>
+              <div class="col-sm-10 col-md-10">
+                <textarea name="content" id="inputContent" class="form-control" required value="{{ content }}"></textarea>
+              </div>
+              <div class="col-sm-0 col-md-11">
+                &nbsp;
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-1 col-sm-10">
+                <button type="submit" class="btn btn-primary" onclick="return setContent()">Submit</button>
+              </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

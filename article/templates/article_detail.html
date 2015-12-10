@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'block_list' %}">Home</a></li>
+            <li><a href="{% url 'article_list' article.block.id %}">{{ article.block.name }}</a></li>
+            <li class="active">{{ article.title }}</li>
+        </ol>
+    </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered mainTable">
+            <tr>
+                <td class="author">
+                    <center>Author: {{ article.owner }}</center>
+                </td>
+                <td class="content">
+                    <h6>Published at: {{ article.create_timestamp }}</h6>
+                    <h4>Title: {{ article.title }}</h4>
+                    <div>{{ article.content }}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

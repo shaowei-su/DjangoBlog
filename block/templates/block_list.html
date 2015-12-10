@@ -15,8 +15,8 @@
             <div class = 'col-md-6 col-md-offset-3'>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">{{ block.name }}</h3>
-                      <h4 class="panel-title text-right">{{ block.manager.username }}</h4>
+                    <a href="{% url 'article_list' block.id %}">{{ block.name }}</a>
+                      <span class="pull-right">Admin:{{ block.manager.username }}</span>
                   </div>
                   <div class="panel-body">
                     {{ block.desc}}

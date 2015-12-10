@@ -11,6 +11,9 @@ class Block(models.Model):
     create_timestamp = models.DateTimeField(auto_now_add=True)
     last_update_timestamp = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'block'
         verbose_name_plural = 'blocks'
