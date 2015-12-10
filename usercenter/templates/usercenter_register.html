@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
   <div class="row">
-    <div class="col-md-12">
-      {% if form.errors %}
-        <div class="alert alert-danger">{{ form.errors }}</div>
-      {% endif %}
-    </div>
+    {% if form.errors or error %}
+    <div class="alert alert-danger">{{ form.errors }}{{ error }}</div>
+    {% endif %}
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -15,10 +14,10 @@
     <div class="col-md-6">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <b>Login</b>
+          <b>Registration</b>
         </div>
         <div class="panel-body">
-          <form method="post" action="{% url 'login' %}">
+          <form method="post" action="{% url 'usercenter_register' %}">
           {% csrf_token %}
           
           <div class="input-group">
@@ -27,16 +26,25 @@
           </div>
           <br />
           <div class="input-group">
+              <span class="input-group-addon">Email&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <input id="id_email" name="email" type="text" class="form-control" />
+          </div>
+          <br />
+          <div class="input-group">
               <span class="input-group-addon">Password&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <input id="id_password" name="password" type="password" class="form-control" />
           </div>
           <br />
+          <div class="input-group">
+              <span class="input-group-addon">Confirm Password</span>
+              <input id="id_re_password" name="re_password" type="password" class="form-control" />
+          </div>
+          <br />
           <input type="submit" class="btn btn-primary" value="Submit" />
-          <input type="hidden" name="next" value="{{ next }}" />
           </form>
         </div>
         <div class="panel-footer">
-          <a href="{% url 'usercenter_register' %}">Go for registration..</a>
+          <a href="{% url 'login' %}">Go for Login...</a>
         </div>
       </div>
     </div>
@@ -44,4 +52,5 @@
      &nbsp;
     </div>
   </div>
+</div>
 {% endblock %}

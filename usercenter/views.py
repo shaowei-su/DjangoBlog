@@ -2,7 +2,8 @@ import uuid
 import datetime
 import os
 
-from django.shortcuts import render, render_to_response, redirect, reverse
+from django.shortcuts import render, render_to_response, redirect
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from models import ActivateCode

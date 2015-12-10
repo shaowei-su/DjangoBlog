@@ -25,6 +25,19 @@
             </div>
             {% endfor %}
         </div>
+          <div class="col-sm-2">
+            <div class="well">
+              {% if user.is_authenticated %}
+                <span>{{ user.username }}.</span>
+                <br />
+                 Welcome
+                <br />
+                <a href="{% url 'logout_then_login' %}">Logout</a>
+              {% else %}
+                <p>Please <a href="{% url 'login' %}">Login</a>.</p>
+              {% endif %}
+            </div>
+          </div>
     </div>
 </body>
 </html>
