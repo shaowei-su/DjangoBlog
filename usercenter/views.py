@@ -23,7 +23,7 @@ def register(request):
         username = request.POST["username"].strip()
         email = request.POST["email"].strip()
         password = request.POST["password"].strip()
-        re_password == request.POST["re_password"].strip()
+        re_password = request.POST["re_password"].strip()
         if not username or not password or not email:
             error = "All fields need to be completed"
         if password != re_password:
